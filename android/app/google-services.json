@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "246480160029",
+    "project_id": "e-commerce-ae51d",
+    "storage_bucket": "e-commerce-ae51d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246480160029:android:4b29db6f6b2acd186e0df4",
+        "android_client_info": {
+          "package_name": "com.eslamfares.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246480160029-mtdqjq8ehjidi190qsn958cgujs9cuii.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eslamfares.e_commerce",
+            "certificate_hash": "139f184300b8a21e67e7f3f773eeac9bcd15fa4a"
+          }
+        },
+        {
+          "client_id": "246480160029-emmei7amt15ll5vej2fnf958ouq2m4cv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCASj-uz5SvWWtumNob3jHObu_V25nUb7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246480160029-emmei7amt15ll5vej2fnf958ouq2m4cv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
