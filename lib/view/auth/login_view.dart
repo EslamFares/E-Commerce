@@ -1,5 +1,6 @@
 import 'package:e_commerce/constance.dart';
 import 'package:e_commerce/core/view_model/auth_view_model.dart';
+import 'package:e_commerce/view/auth/register_view.dart';
 import 'package:e_commerce/view/widgets/custom_button.dart';
 import 'package:e_commerce/view/widgets/custom_button_social.dart';
 import 'package:e_commerce/view/widgets/custom_text.dart';
@@ -7,7 +8,7 @@ import 'package:e_commerce/view/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends GetWidget<AuthViewModel> {
+class LoginView extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -32,10 +33,15 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
-                    CustomText(
-                      txt: 'Sign Up',
-                      fontSize: 18,
-                      color: primaryColor,
+                    FlatButton(
+                                          child: CustomText(
+                        txt: 'Sign Up',
+                        fontSize: 18,
+                        color: primaryColor,
+                      ),
+                      onPressed: (){
+                        Get.to(RegisterView());
+                      },
                     ),
                   ],
                 ),
@@ -93,7 +99,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     if (_formKey.currentState.validate()) {
                       controller.signInWithEmailAndPassword();
                     }
-                    // Get.to(SecondScreen());
+                    
                   },
                 ),
                 SizedBox(height: 20),

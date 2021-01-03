@@ -1,4 +1,4 @@
-import 'package:e_commerce/view/auth/login_screen.dart';
+import 'package:e_commerce/view/auth/login_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
         child: FlatButton(
           onPressed: () {
             _auth.signOut();
-            Get.offAll(LoginScreen());
+            Get.offAll(LoginView());
           },
           child: Text('LogOut'),
           color: Colors.red,
