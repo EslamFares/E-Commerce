@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'SourceSans',
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

@@ -2,8 +2,7 @@ import 'package:e_commerce/core/view_model/auth_view_model.dart';
 import 'package:e_commerce/view/auth/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:e_commerce/core/view_model/home_view_model.dart';
+import 'package:e_commerce/core/view_model/control_view_model.dart';
 
 // ignore: must_be_immutable
 class ControlView extends GetWidget<AuthViewModel> {
@@ -12,8 +11,8 @@ class ControlView extends GetWidget<AuthViewModel> {
     return Obx(() {
       return (Get.find<AuthViewModel>().user == null)
           ? LoginView()
-          : GetBuilder<HomeviewModel>(
-              init: HomeviewModel(),
+          : GetBuilder<ControleviewModel>(
+              init: ControleviewModel(),
               builder: (controller) => Scaffold(
                 body: controller.currentScreen,
                 bottomNavigationBar: bottomNavigationBar(),
@@ -23,8 +22,8 @@ class ControlView extends GetWidget<AuthViewModel> {
   }
 
   Widget bottomNavigationBar() {
-    return GetBuilder<HomeviewModel>(
-      init: HomeviewModel(),
+    return GetBuilder<ControleviewModel>(
+      init: ControleviewModel(),
       builder: (controller) => BottomNavigationBar(
         selectedFontSize: 0,
         unselectedFontSize: 0,

@@ -1,35 +1,45 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_commerce/core/services/home_services.dart';
+import 'package:e_commerce/model/category_model.dart';
+import 'package:e_commerce/model/product_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:e_commerce/view/home_view.dart';
-import 'package:e_commerce/view/cart_view.dart';
-import 'package:e_commerce/view/profile_view.dart';
 
-class HomeviewModel extends GetxController {
-  int _navigatorValue = 0;
-  get navigatorValue => _navigatorValue;
-  Widget _currentScreen = HomeView();
-  get currentScreen => _currentScreen;
-  void changeSelectedValue(int selectValue) {
-    switch (selectValue) {
-      case 0:
-        _currentScreen = HomeView();
+class HomeViewModel extends GetxController {
+  ValueNotifier get loading => _loading;
+  ValueNotifier<bool> _loading = ValueNotifier(false);
 
-        break;
+  List<CategoryModel> get categoryModel => _categoryModel;
+  List<CategoryModel> _categoryModel = [];
 
-      case 1:
-        _currentScreen = CartView();
+  List<ProductModel> get productModel => _productModel;
+  List<ProductModel> _productModel = [];
 
-        break;
+  HomeViewModel() {
+    getCategories();
+    getBestSellingProducts();
+  }
+  getCategories() async {
+    _loading.value = true;
+    HomeServices().getCatogry().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _categoryModel.add(CategoryModel.fromJson(value[i].data()));
+        // print(_categoryModel.length);
+        _loading.value = false;
+      }
+      update();
+    });
+  }
 
-      case 2:
-        _currentScreen = ProfileView();
-
-        break;
-
-      default:
-        _currentScreen = HomeView();
-    }
-    _navigatorValue = selectValue;
-    update();
+  getBestSellingProducts() async {
+    _loading.value = true;
+    HomeServices().getBestSelling().then((value) {
+     for(int i = 0; i<value.length;i++){
+       _productModel.add(ProductModel.fromJson(value[i].data()));
+       // print('productModel ========>${_productModel.length}');
+       _loading.value = false;
+     }
+     update();
+    });
   }
 }
